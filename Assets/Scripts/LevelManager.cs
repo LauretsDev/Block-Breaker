@@ -12,4 +12,14 @@ public class LevelManager : MonoBehaviour {
 		Debug.Log("You quit the game!");
 		Application.Quit();
 	}
+
+	public void LoadNextLevel() {
+		Application.LoadLevel(Application.loadedLevel + 1);
+	}
+
+	public void BrickDestroyed() {
+		if(Brick.breakableCount <= 0) { 
+			LoadNextLevel();
+		}
+	}
 }
